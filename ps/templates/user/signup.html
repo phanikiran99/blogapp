@@ -1,0 +1,39 @@
+{% extends 'base-new.html' %}
+
+{% block title %}Sign-up{% endblock title %}
+
+{% block main %}
+<div class="row">
+  <div class="login well span8">
+    <form method="post" class="form-horizontal">
+      <legend>SignUp</legend>
+      {% if error %}<p class="alert alert-error">{{ error }}</p>{% endif %}
+      <div class="form-group{% if form.uname.errors %} error{% endif%}">
+        {{ form.uname.label(class="control-label") }}
+        <div class="controls">
+          {{ form.uname(class="form-control") }}
+          {% for error in form.username.errors %}<span class="help-inline">{{ error }}</span>{% endfor %}
+        </div>
+      </div>
+      <div class="form-group{% if form.username.errors %} error{% endif%}">
+        {{ form.username.label(class="control-label") }}
+        <div class="controls">
+          {{ form.username(class="form-control") }}
+          {% for error in form.username.errors %}<span class="help-inline">{{ error }}</span>{% endfor %}
+        </div>
+      </div>
+      <div class="form-group{% if form.password.errors %} error{% endif%}">
+        {{ form.password.label(class="control-label") }}
+        <div class="controls">
+          {{ form.password(class="form-control") }}
+          {% for error in form.password.errors %}<span class="help-inline">{{ error }}</span>{% endfor %}
+        </div>
+      </div>
+      <br>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-info">Sign-Up</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock main %}

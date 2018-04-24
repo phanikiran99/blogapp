@@ -1,0 +1,50 @@
+{% extends 'base-new.html' %}
+
+{% block title %}Search CEDS-CogDB{% endblock title %}
+
+{% block main %}
+<div class="search well span8">
+<div class="row">
+<!--  -->
+<form method="post" class="form-horizontal">
+	<div class="col-sm-9">
+    
+      <legend>Search CEDS Documents</legend>
+      {% if error %}<p class="alert alert-error">{{ error }}</p>{% endif %}
+      <div class="form-group{% if form.searchKey.errors %} error{% endif%}">
+        {{ form.searchKey.label(class="control-label") }}
+        <div class="controls">
+          {{ form.searchKey(class="form-control") }}
+          {% for error in form.searchKey.errors %}<span class="help-inline">{{ error }}</span>{% endfor %}
+        </div>
+      </div>
+      <br>
+	</div>
+	<div class="col-sm-3">
+		<br><br><br><br>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-search">Search</button>
+      </div>
+	</div>
+</form>
+</div>
+</div>
+<div class="row">
+{% if loading %}
+	<div class="loading">
+		<img src="{{ url_for('static',filename='img/loading.gif') }}" width=300px></img>
+	</div>
+
+<!--   -->
+{% else %}
+	<div class = "results well span8">
+		<p>{% for i in range(10) %}<span class="results-inline"><b>{{ results_title[i] }}</b> 
+			<br> {{ results_content[i] }} <br>
+			<hr style="background:#0074D9; border:0; height:1px" /> </span>{% endfor %}
+		</p>
+	</div>
+{% endif %}
+</div>
+
+      
+{% endblock main %}

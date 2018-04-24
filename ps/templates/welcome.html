@@ -1,0 +1,39 @@
+{% extends 'base-new.html' %}
+
+{% block title %}Welcome to CEDS-CogDB{% endblock title %}
+
+{% block main %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Whats New..</h3>
+      <p><ul>
+      		<li>Basic Frame work Setup  - 08JUL2016</li>
+      		<li>Project Kicked off  - 08JUN2016</li>
+      	</ul>
+	<p>CEDS Cognitive/Dashboard. Planned Features - Search Index, Document Conversion, Test Plan Suggestor and Requirement Analysis</p>
+	<p><a href="#"><img src="{{ url_for('static',filename='img/new-img.png') }}" width=200px></img></a></p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Join Us</h3>
+      <p><a href=""><img src="{{ url_for('static',filename='img/mural_logo.png') }}" width=200px></img></a></p>
+      <p> Participate and contribute to us, Join the Mural and help us support better.</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>The Team</h3> 
+		<table class="table table-hover">
+		<tr><td><img src="{{ url_for('static',filename='img/mural_logo.png') }}" width=50px></img></td>
+			<td><ul><li>Phanikiran Siddineni</li><li><a href="mailto:phanikirans@in.ibm.com"><span class="glyphicon glyphicon-envelope"></span></a>
+				<span class="glyphicon glyphicon-icon-chat"></span>
+				</li></ul></td></tr>
+		<tr><td>img</td><td><ul><li>detail1</li><li>detail2</li></ul></td></tr>
+		<tr><td>img</td><td><ul><li>detail1</li><li>detail2</li></ul></td></tr>
+		</table>	
+		<p>{% for i in range(5) %}<span class="help-inline">{{ i**2 }}</span>{% endfor %}</p>
+    </div>
+  </div>
+</div>
+<h3> Cool You are logged in as {{ current_user.email }} now, You have access to all features</h3>
+
+
+{% endblock main %}

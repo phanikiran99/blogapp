@@ -1,0 +1,10 @@
+{% extends 'base-new.html' %}
+
+{% block title %}Not Found{% endblock title %}
+
+{% block main %}
+<center>
+<h2>!! Unfortunately This page/Service is not availbale !!</h2><br>
+<img src="{{ url_for('static',filename='img/error-404.png') }}" width='500px' align='middle'></img>
+</center>
+{% endblock main %}
